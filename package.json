@@ -1,0 +1,31 @@
+{
+  "name": "work_npm_scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pug": "pug -P src/*.pug -o dist",
+    "scss": "node-sass --output-style compact -o dist/css src/scss",
+    "imagemin": "imagemin src/images/* -o dist/images",
+    "serve": "browser-sync start --server --startPath \"dist\" --files \"dist/css/*.css, dist/js/*.js, dist/**/*.html, !node_modules/**/*.html\"",
+    "build:pug": "run-s pug",
+    "build:css": "run-s scss",
+    "build:images": "run-s imagemin",
+    "build": "run-s build:*",
+    "watch:pug": "onchange \"src/*.pug\" -- run-s build:pug",
+    "watch:css": "onchange \"src/scss/*.scss\" -- run-s build:css",
+    "watch:images": "onchange \"src/images\" -- run-s build:images",
+    "watch": "run-p serve watch:*",
+    "postinstall": "run-s build watch"
+  },
+  "author": "OY",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "imagemin-cli": "^3.0.0",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "^4.1.2",
+    "onchange": "^3.3.0",
+    "pug": "^2.0.3"
+  }
+}
