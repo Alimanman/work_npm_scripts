@@ -7,7 +7,7 @@
 - 支持`npm i`安装后直接启动
 - `npm run watch`启动
 
-## src是开发环境结构
-src
-  scss
-  images
+## src开发环境结构
+src  
+|-scss  
+|-images
